@@ -1,0 +1,33 @@
+{
+  "name": "ma7alak-dz",
+  "version": "1.0.0",
+  "description": "MA7ALAK DZ - Desktop",
+  "author": "MA7ALAK DZ",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "devDependencies": {
+    "electron": "31.7.7",
+    "electron-builder": "24.13.3"
+  },
+  "build": {
+    "appId": "com.ma7alak.dz",
+    "productName": "MA7ALAK DZ",
+    "files": ["main.js", "index.html", "build/icon.png"],
+    "directories": { "output": "dist" },
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  }
+}
